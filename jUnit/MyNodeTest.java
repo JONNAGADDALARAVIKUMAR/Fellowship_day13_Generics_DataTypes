@@ -9,6 +9,7 @@ import main.MyLinkedList;
 public class MyNodeTest {
 	
 	@Test
+	//Simple Linked List
 	public void shouldPassThisTestWhenPassingThreeValuesToLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -23,6 +24,7 @@ public class MyNodeTest {
 	}
 	
 	@Test
+	//Adding Values to the Linked List
 	public void shouldPassThisTestWhenAddingThreeValuesToLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(70);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -34,7 +36,7 @@ public class MyNodeTest {
 		myLinkedList.add(mySecondNode);
 		myLinkedList.add(myThirdNode);
 		
-		System.out.print("Adding   - ");
+		System.out.print("Adding\t\t- ");
 		myLinkedList.printMyNode();
 		boolean result = myLinkedList.head.equals(myThirdNode) &&
 							myLinkedList.head.getNext().equals(mySecondNode) &&
@@ -43,6 +45,7 @@ public class MyNodeTest {
 	}
 	
 	@Test
+	//Appending Nodes to the Linked List
 	public void shouldPassThisTestWhenAppendingThreeValuesToLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -54,7 +57,7 @@ public class MyNodeTest {
 		myLinkedList.append(mySecondNode);
 		myLinkedList.append(myThirdNode);
 		
-		System.out.print("Append   - ");
+		System.out.print("Append\t\t- ");
 		myLinkedList.printMyNode();
 		boolean result = myLinkedList.head.equals(myFirstNode) &&
 							myLinkedList.head.getNext().equals(mySecondNode) &&
@@ -63,6 +66,7 @@ public class MyNodeTest {
 	}
 	
 	@Test
+	//Inserting Nodes at Specified Position
 	public void shouldPassThisTestWhenInsertOneValueToLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -74,7 +78,7 @@ public class MyNodeTest {
 		myLinkedList.append(myThirdNode);
 		myLinkedList.insert(myFirstNode, mySecondNode);
 		
-		System.out.print("Insert   - ");
+		System.out.print("Insert\t\t- ");
 		myLinkedList.printMyNode();
 		boolean result = myLinkedList.head.equals(myFirstNode) &&
 							myLinkedList.head.getNext().equals(mySecondNode) &&
@@ -83,6 +87,7 @@ public class MyNodeTest {
 	}
 	
 	@Test
+	//Deleting First Node
 	public void shouldPassThisTestWhenFirstValueDeletedFromLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -95,12 +100,13 @@ public class MyNodeTest {
 		myLinkedList.insert(myFirstNode, mySecondNode);
 		
 		INode result = myLinkedList.pop();
-		System.out.print("PopFirst - ");
+		System.out.print("PopFirst\t- ");
 		myLinkedList.printMyNode();
 		Assert.assertEquals(myFirstNode, result);
 	}
 	
 	@Test
+	//Deleting Last Node
 	public void shouldPassThisTestWhenLastValueDeletedFromLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -113,12 +119,13 @@ public class MyNodeTest {
 		myLinkedList.append(myThirdNode);
 		
 		INode result = myLinkedList.popLast();
-		System.out.print("PopLast  - ");
+		System.out.print("PopLast\t\t- ");
 		myLinkedList.printMyNodePopLast();
 		Assert.assertEquals(myThirdNode, result);
 	}
 	
 	@Test
+	//Searching for a Particular Node
 	public void shouldPassThisTestANodeIfPresentLinkedList() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -131,8 +138,28 @@ public class MyNodeTest {
 		myLinkedList.append(myThirdNode);
 		
 		INode result = myLinkedList.search(mySecondNode);
-		System.out.print("Search   - ");
+		System.out.print("Search\t\t- ");
 		myLinkedList.printMyNode();
 		Assert.assertEquals(mySecondNode, result);
+	}
+	
+	@Test
+	//Inserting a Node after Particular Node
+	public void shouldPassThisTestWhenOneValueInsertedAfterSpecifiedValueLinkedList() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyNode<Integer> insertionNode = new MyNode<>(40);
+		
+		MyLinkedList myLinkedList = new MyLinkedList();
+		
+		myLinkedList.add(myFirstNode);
+		myLinkedList.append(mySecondNode);
+		myLinkedList.append(myThirdNode);
+		
+		boolean result = myLinkedList.insertNodeAfterSpecifiedNode(insertionNode, mySecondNode);
+		System.out.print("Insert After\t- ");
+		myLinkedList.printMyNode();
+		Assert.assertTrue(result);
 	}
 }	

@@ -72,6 +72,18 @@ public class MyLinkedList {
 		return tempNode;
 	}
 	
+	public boolean insertNodeAfterSpecifiedNode(INode insertionNode, INode specifiedNode) {
+		INode tempNode = this.head;
+		while(!tempNode.equals(specifiedNode)) {
+			tempNode = tempNode.getNext();
+		}
+		INode nextNode = tempNode.getNext();
+		tempNode.setNext(insertionNode);
+		insertionNode.setNext(nextNode);
+		
+		return (tempNode.equals(specifiedNode) && specifiedNode.getNext().equals(insertionNode));
+	}
+	
 	public void printMyNode() { //Prints the List like 56->30->70 by appending
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
 		INode tempNode = head;
