@@ -51,17 +51,42 @@ public class MyLinkedList {
 		this.head = head.getNext();
 		return tempNode;
 	}
+	
+	public INode popLast() {
 		
+		INode tempNode = this.head;
+		while(!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		return tempNode;	
+	}
 	
 	public void printMyNode() { //Prints the List like 56->30->70 by appending
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
 		INode tempNode = head;
 		while(tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
-			if(!tempNode.equals(tail)) myNodes.append("->");
-			tempNode = tempNode.getNext();
+			if(!tempNode.equals(tail)) {
+				myNodes.append("->");
+			}
+				tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
+		System.out.println(myNodes);
+	}
+	
+	public void printMyNodePopLast() { //Prints the List like 56->30->70 by appending
+		StringBuffer myNodes = new StringBuffer("My Nodes : ");
+		INode tempNode = head;
+		while(tempNode.getNext() != null) {
+			myNodes.append(tempNode.getKey());
+			if(!tempNode.equals(tail)) {
+				myNodes.append("->");
+			}
+				tempNode = tempNode.getNext();
+		}
 		System.out.println(myNodes);
 	}
 }
