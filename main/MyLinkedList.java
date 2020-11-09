@@ -63,6 +63,15 @@ public class MyLinkedList {
 		return tempNode;	
 	}
 	
+	public INode search(INode newNodeToSearch) {
+		INode tempNode = this.head;
+		while(!tempNode.getNext().equals(newNodeToSearch)) {
+			tempNode = tempNode.getNext();
+		}
+		tempNode = tempNode.getNext();
+		return tempNode;
+	}
+	
 	public void printMyNode() { //Prints the List like 56->30->70 by appending
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
 		INode tempNode = head;
