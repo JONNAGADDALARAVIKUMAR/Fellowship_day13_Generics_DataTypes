@@ -24,6 +24,19 @@ public class MyLinkedList {
 			this.head.setNext(tempNode);
 		}
 	}
+		public void append(INode myNode) {
+			
+			if(this.tail == null) {
+				this.tail = myNode;
+			}
+			if(this.head == null) {
+				this.head = myNode;
+			} 
+			else {
+				this.tail.setNext(myNode);
+				this.tail = myNode;
+			}
+	}
 	
 	public void printMyNode() { //Prints the List like 56->30->70 by appending
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
