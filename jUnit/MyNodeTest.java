@@ -3,6 +3,7 @@ package jUnit;
 import org.junit.Assert;
 import org.junit.Test;
 import main.MyNode;
+import main.INode;
 import main.MyLinkedList;
 
 public class MyNodeTest {
@@ -76,5 +77,22 @@ public class MyNodeTest {
 							myLinkedList.head.getNext().equals(mySecondNode) &&
 							myLinkedList.tail.equals(myThirdNode);
 		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void shouldPassThisTestWhenFirstValueDeletedFromLinkedList() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		
+		MyLinkedList myLinkedList = new MyLinkedList();
+		
+		myLinkedList.add(myFirstNode);
+		myLinkedList.append(myThirdNode);
+		myLinkedList.insert(myFirstNode, mySecondNode);
+		
+		INode result = myLinkedList.pop();
+		myLinkedList.printMyNode();
+		Assert.assertEquals(myFirstNode, result);
 	}
 }	

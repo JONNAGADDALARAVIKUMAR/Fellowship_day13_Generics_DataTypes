@@ -44,6 +44,13 @@ public class MyLinkedList {
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
+	
+	public INode pop() {
+		
+		INode tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
 		
 	
 	public void printMyNode() { //Prints the List like 56->30->70 by appending
