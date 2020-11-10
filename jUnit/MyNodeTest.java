@@ -2,9 +2,11 @@ package jUnit;
 
 import org.junit.Assert;
 import org.junit.Test;
-import main.MyNode;
+
 import main.INode;
 import main.MyLinkedList;
+import main.MyNode;
+import main.OrderedList;
 
 public class MyNodeTest {
 	
@@ -182,6 +184,30 @@ public class MyNodeTest {
 		System.out.print("Delete After\t- ");
 		myLinkedList.printMyNode();
 		boolean result = myLinkedList.head.getNext().getNext().equals(myForthNode);
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	//Sorting Node after Particular Node
+	public void shouldPassThisTestWhenThisOrderedListSorted() {
+		
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(40);
+		MyNode<Integer> fourthNode = new MyNode<>(70);
+		
+		OrderedList<Integer> orderedList = new OrderedList<>();
+		
+		orderedList.add(firstNode);
+		orderedList.add(secondNode);
+		orderedList.add(thirdNode);
+		orderedList.add(fourthNode);
+		System.out.print("Sorting\t\t- ");
+		orderedList.printNodes();
+		boolean result = orderedList.head.equals(secondNode) &&
+						orderedList.head.getNext().equals(thirdNode) &&
+						orderedList.head.getNext().getNext().equals(firstNode) &&
+						orderedList.tail.equals(fourthNode);
 		Assert.assertTrue(result);
 	}
 }	
