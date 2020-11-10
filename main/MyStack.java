@@ -20,4 +20,14 @@ public class MyStack {
 		return myLinkedList.head;
 	}
 
+	public void clear() {
+		while(myLinkedList.head != null) {
+			myLinkedList.printMyNode();
+			myLinkedList.pop();
+		}
+	}
+
+	public boolean isEmpty() {
+		return (myLinkedList.head == null);
+	}
 }
